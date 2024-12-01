@@ -1,0 +1,89 @@
+% _printf(3)               Custom Printf Function               _printf(3)
+
+NAME
+       _printf - A custom version of the printf function
+
+SYNOPSIS
+       #include "_printf.h"
+
+       int _printf(const char *format, ...);
+
+DESCRIPTION
+       `_printf` is a custom implementation of the standard `printf` function. It takes a format
+       string and variable arguments, then prints them to the standard output (usually your screen).
+
+       The format string can contain regular text and special format specifiers that are replaced
+       with the corresponding arguments you pass in.
+
+       This is a simple version of `printf` to help you understand how it works under the hood. It
+       supports a few common format specifiers for printing integers, strings, and characters.
+
+PARAMETERS
+       format
+              The format string that defines how the output should look. It can contain:
+              - Regular text that gets printed directly.
+              - Format specifiers (like `%d`, `%s`, etc.) that get replaced with the values you pass.
+
+       ...    The values to be printed, corresponding to each format specifier in the format string.
+
+RETURN VALUE
+       `_printf` returns the total number of characters printed (excluding the null terminator).
+       If something goes wrong, it returns a negative value.
+
+SUPPORTED FORMAT SPECIFIERS
+       Here are the format specifiers you can use with `_printf`:
+
+       - `%d`      Prints an integer in decimal format (e.g., `42`).
+       - `%s`      Prints a string of characters (e.g., `"Hello"`).
+       - `%c`      Prints a single character (e.g., `'A'`).
+       - `%%`      Prints a literal `%` symbol.
+
+EXAMPLES
+       Here's how to use `_printf` with some examples:
+
+       Example 1:
+       ```c
+       int num = 42;
+       _printf("The answer is: %d\n", num);
+       ```
+       Output:
+       ```
+       The answer is: 42
+       ```
+
+       Example 2:
+       ```c
+       char character = 'A';
+       _printf("Character: %c\n", character);
+       ```
+       Output:
+       ```
+       Character: A
+       ```
+
+       Example 3:
+       ```c
+       char *str = "Hello, world!";
+       _printf("Message: %s\n", str);
+       ```
+       Output:
+       ```
+       Message: Hello, world!
+       ```
+
+NOTES
+       - If `_printf` encounters an unsupported format specifier, it simply skips it and continues
+         printing the rest of the string.
+       - The function will print regular text in the format string directly, and only replace the
+         format specifiers with the values you provide.
+
+SEE ALSO
+       printf(3) - The standard C `printf` function
+
+AUTHOR
+       This custom `_printf` function was created as part of a C programming project. Feel free to
+       explore and learn from the code!
+
+BUGS
+       - If you pass in an unsupported format specifier, it won’t show an error — it just skips it.
+       - Currently, only a few basic format specifiers are supported. There's room for improvement!

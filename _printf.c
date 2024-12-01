@@ -2,6 +2,14 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+/**
+ * _printf - produces output according to a format
+ *
+ * @format: format string containing the characters and specifiers
+ *
+ * Return: number of characters printed
+ */
+
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -9,25 +17,12 @@ int _printf(const char *format, ...)
 
 	va_start(args, *format);
 
-	while (*format != '\0')
+	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			switch (*format)
-			{
-				case 'c':
-					n += handlers_c(args);
-					break;
-				case 's':
-					n += handlers_s(args, n);
-					break;
-				default:
-					_putchar('%');
-					_putchar(*format);
-					break;
-			}
-
+			handle_specifier(format, args);
 		}
 		else
 		{
@@ -36,6 +31,6 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	return (n);
+	return (n + 1);
 
 }

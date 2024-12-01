@@ -1,7 +1,0 @@
-/**
-				  case 's':
-				  char *sg = va_arg(args, char *);
-				  _putchar(sg);
-				  break;
-				  */
-
