@@ -1,7 +1,7 @@
-#include <stdarg.h>
-
 #ifndef MAIN_H
 #define MAIN_H
+
+#include <stdarg.h>
 
 int _putchar(char c);
 int handlers_c(va_list args);
