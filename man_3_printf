@@ -81,9 +81,9 @@ SEE ALSO
        printf(3) - The standard C `printf` function
 
 AUTHOR
-       This custom `_printf` function was created as part of a C programming project. Feel free to
-       explore and learn from the code!
+	Rene Alsina https://github.com/Rentaro009
 
+	Joshua https://github.com/JoshuaRivera12
 BUGS
        - If you pass in an unsupported format specifier, it won’t show an error — it just skips it.
        - Currently, only a few basic format specifiers are supported. There's room for improvement!
