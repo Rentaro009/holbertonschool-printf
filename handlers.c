@@ -13,11 +13,8 @@ int handle_specifier(const char *format, va_list args)
 {
 	int ct = 0;
 
-	if (*format == '%')
-	{
-		ct += _putchar('%');
-		return (ct);
-	}
+	if (!format)
+		return (-1);
 
 	switch (*format)
 	{
@@ -30,6 +27,9 @@ int handle_specifier(const char *format, va_list args)
 		case 'i':
 		case 'd':
 			ct += handlers_di(args);
+			break;
+		case '%':
+			ct += _putchar('%');
 			break;
 		default:
 			ct += _putchar('%');
