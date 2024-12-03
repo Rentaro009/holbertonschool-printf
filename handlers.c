@@ -22,7 +22,7 @@ int handle_specifier(const char *format, va_list args)
 			ct += handlers_c(args);
 			break;
 		case 's':
-			ct += handlers_s(args, ct);
+			ct += handlers_s(args);
 			break;
 		case 'i':
 		case 'd':
@@ -49,10 +49,11 @@ int handle_specifier(const char *format, va_list args)
 
 int handlers_c(va_list args)
 {
-	char cr = va_arg(args, int);
+	int ct = 0;
 
-	_putchar(cr);
-	return (cr);
+	ct += _putchar(va_arg(args, int));
+
+	return (ct);
 }
 
 /**
@@ -64,16 +65,20 @@ int handlers_c(va_list args)
  * Return: number of characters printed
  */
 
-int handlers_s(va_list args, int n)
+int handlers_s(va_list args)
 {
 	char *sg = va_arg(args, char *);
+	int ct = 0;
 
-	while (*sg != '\0')
+	if(!sg)
+		sg = "(null)";
+
+	while (*sg)
 	{
-	n += _putchar(*sg);
+	ct += _putchar(*sg);
 	sg++;
 	}
-	return (n);
+	return (ct);
 }
 
 /**
