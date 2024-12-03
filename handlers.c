@@ -60,7 +60,6 @@ int handlers_c(va_list args)
  * handlers_s - handles the %s format specifier
  *
  * @args: list of variable arguments passed to _printf
- * @n: count
  *
  * Return: number of characters printed
  */
@@ -70,7 +69,7 @@ int handlers_s(va_list args)
 	char *sg = va_arg(args, char *);
 	int ct = 0;
 
-	if(!sg)
+	if (!sg)
 		sg = "(null)";
 
 	while (*sg)
