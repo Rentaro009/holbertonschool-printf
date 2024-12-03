@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			handle_specifier(format, args);
+			n +=  handle_specifier(format, args);
 		}
 		else
 		{
